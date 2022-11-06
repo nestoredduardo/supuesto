@@ -10,12 +10,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id      String @id @default(cuid())
-    title   String
-    content String
-}
-
 // NextAuth.js Models
 // NOTE: When using postgresql, mysql or sqlserver, 
 // uncomment the @db.Text annotations below
@@ -26,12 +20,12 @@ model Account {
     type              String
     provider          String
     providerAccountId String
-    refresh_token     String? // @db.Text
-    access_token      String? // @db.Text
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
     expires_at        Int?
     token_type        String?
     scope             String?
-    id_token          String? // @db.Text
+    id_token          String? @db.Text
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -54,6 +48,9 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    seats         Seat[]
+    createdAt     DateTime  @default(now())
+    updatedAt     DateTime  @updatedAt
 }
 
 model VerificationToken {
@@ -62,4 +59,27 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Seat {
+    id        String     @id @default(cuid())
+    name      String
+    user_id   String
+    user      User       @relation(fields: [user_id], references: [id])
+    debits    Movement[] @relation("Debit")
+    credits   Movement[] @relation("Credit")
+    createdAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
+}
+
+model Movement {
+    id        String   @id @default(cuid())
+    name      String
+    amount    Float
+    debit_id  String
+    credit_id String
+    debit     Seat     @relation(fields: [debit_id], references: [id], name: "Debit")
+    credit    Seat     @relation(fields: [credit_id], references: [id], name: "Credit")
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
