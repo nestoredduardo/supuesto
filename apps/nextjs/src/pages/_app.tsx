@@ -1,5 +1,6 @@
 // src/pages/_app.tsx
 import '../styles/globals.css';
+import { Provider, UnifiedTheme } from '@revolut/ui-kit';
 import { SessionProvider } from 'next-auth/react';
 import type { Session } from 'next-auth';
 
@@ -12,7 +13,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <Provider mode="light" theme={UnifiedTheme}>
+        <Component {...pageProps} />
+      </Provider>
     </SessionProvider>
   );
 };
