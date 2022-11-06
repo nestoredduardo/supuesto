@@ -1,5 +1,5 @@
 {
-  "name": "@acme/nextjs",
+  "name": "@supuesto/nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,9 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@acme/api": "*",
-    "@acme/auth": "*",
-    "@acme/db": "*",
+    "@supuesto/api": "*",
+    "@supuesto/auth": "*",
+    "@supuesto/db": "*",
     "@tanstack/react-query": "^4.14.1",
     "@trpc/client": "10.0.0-rc.4",
     "@trpc/next": "10.0.0-rc.4",
