@@ -65,6 +65,7 @@ model Seat {
     id        String     @id @default(cuid())
     name      String
     user_id   String
+    seat_type SeatType
     user      User       @relation(fields: [user_id], references: [id])
     debits    Movement[] @relation("Debit")
     credits   Movement[] @relation("Credit")
