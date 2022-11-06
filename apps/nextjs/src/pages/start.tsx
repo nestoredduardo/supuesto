@@ -1,7 +1,7 @@
 // Libraries
 import Image from 'next/image';
 import { getProviders, signIn } from 'next-auth/react';
-import { Layout, Header, Button, Flex } from '@revolut/ui-kit';
+import { Layout, Header, Button } from '@revolut/ui-kit';
 
 // Utils
 import { env } from '@/env/client.mjs';
@@ -47,7 +47,7 @@ const StartPage: NextPage = () => {
           variant="black"
           onClick={() =>
             signIn('google', {
-              callbackUrl: `${env.NEXT_PUBLIC_APP_URL}/dashboard`,
+              callbackUrl: `${env.NEXT_PUBLIC_APP_URL}/home`,
             })
           }
           marginTop="s-32"

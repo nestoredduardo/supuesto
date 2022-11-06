@@ -5,10 +5,14 @@ importers:
   .:
     specifiers:
       '@manypkg/cli': ^0.19.2
+      '@revolut/icons': ^1.56.0
+      '@supuesto/nextjs': workspace:^0.1.0
       prettier: ^2.7.1
       turbo: ^1.5.5
     dependencies:
       '@manypkg/cli': 0.19.2
+      '@revolut/icons': 1.56.0
+      '@supuesto/nextjs': link:apps/nextjs
       prettier: 2.7.1
       turbo: 1.6.3
 
@@ -2465,6 +2469,15 @@ packages:
   /@remix-run/router/1.0.3:
     resolution: {integrity: sha512-ceuyTSs7PZ/tQqi19YZNBc5X7kj1f8p+4DIyrcIYFY9h+hd1OKm4RqtiWldR9eGEvIiJfsqwM4BsuCtRIuEw6Q==}
     engines: {node: '>=14'}
+    dev: false
+
+  /@revolut/icons/1.56.0:
+    resolution: {integrity: sha512-7YL2z2auixDv0+YWXQTXI8e8+szyOKEnK5029OUskTk46yXfeACpP4w5lqhCUwOD0nbdJy2FpUQMm4/Z0cFPpw==}
+    peerDependencies:
+      react: ^16.9.0 || ^17.0.0 || ^18.0.0
+      styled-components: ^5.0.0
+    dependencies:
+      '@styled-system/core': 5.1.2
     dev: false
 
   /@revolut/icons/1.56.0_56nicwxcbpehznvjhlpvpy75bu:

@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@manypkg/cli": "^0.19.2",
+    "@revolut/icons": "^1.56.0",
+    "@supuesto/nextjs": "workspace:^0.1.0",
     "prettier": "^2.7.1",
     "turbo": "^1.5.5"
   }

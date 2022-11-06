@@ -18,11 +18,6 @@ export const authOptions: NextAuthOptions = {
       session.user.id = user.id;
       return session;
     },
-    async signIn({ account, profile }) {
-      console.log(profile);
-
-      return true;
-    },
   },
   pages: {
     signIn: '/start',
