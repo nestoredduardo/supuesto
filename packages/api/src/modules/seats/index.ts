@@ -1,9 +1,6 @@
-import { protectedProcedure, router } from '@/trpc';
+import { protectedProcedure, router } from '../../trpc';
 
-import {
-  newMovementValidator,
-  newSeatValidator,
-} from '@/modules/seats/validators';
+import { newMovementValidator, newSeatValidator } from './validators';
 
 export const seatsRouter = router({
   newMovement: protectedProcedure
